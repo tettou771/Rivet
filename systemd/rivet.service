@@ -1,0 +1,16 @@
+[Unit]
+Description=Rivet - Discord Translator Bot (Claude-powered)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/rivet
+EnvironmentFile=/opt/rivet/.env
+ExecStart=/opt/rivet/.venv/bin/python bot.py
+Restart=on-failure
+RestartSec=5
+User=rivet
+
+[Install]
+WantedBy=multi-user.target
